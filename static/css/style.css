@@ -1,0 +1,36 @@
+/* ensures all text is the same font */
+body {
+    font-family: Optima;
+}
+
+p {
+    font-size: 1em;
+    letter-spacing: 0.2px; /* puts space between letters, improves readability */
+}
+
+h2 {
+    font-weight: bolder;
+    color: darkslateblue;
+}
+
+table, th, td {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    border-collapse: collapse;
+}
+
+#third-para {
+    color: darkcyan;
+    font-style: italic;
+}
+
+/* change "UMD" to UMD colors */
+.red-text {
+    color: darkred;
+}
+
+img.logo {
+    width: 221px;
+    height: 92px;
+}
