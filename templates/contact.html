@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block page_title %}Contact Me{% endblock %}
+
+{% block page_head %}Contact Me{% endblock %}
+
+{% block page_content %}
+    {% if form_submitted %}
+        <h4>Thank you for completing my form!</h4>
+
+        <div>
+            <h6 class="d-inline">First Name:</h6>
+            <p class="d-inline">{{ request.form.get('firstName') }}</p>
+        </div>
+
+        <div>
+            <h6 class="d-inline">Last Name:</h6>
+            <p class="d-inline">{{ request.form.get('lastName') }}</p>
+        </div>
+
+        <div>
+            <h6 class="d-inline">Email Address:</h6>
+            <p class="d-inline">{{ request.form.get('email') }}</p>
+        </div>
+
+        <div>
+            <h6 class="d-inline">Phone Number:</h6>
+            <p class="d-inline">{{ request.form.get('phone') }}</p>
+        </div>
+
+        <p><a href="{{ url_for('contact') }}">Complete Form Again</a></p>
+
+    {% else %}
+        <form action="{{ url_for('contact') }}" method="post">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="lastName">
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" name="phone" aria-describedby="phoneHelp">
+                <div id="phoneHelp" class="form-text">Please only enter numbers (ex: 8002324600)</div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    {% endif %}
+{% endblock %}
