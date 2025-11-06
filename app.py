@@ -225,7 +225,11 @@ def page_not_found(_):
 @login_required
 @role_required(['MANAGER', 'ADMIN'])
 def training():
-    return render_template(training.html)
+    if current_user.role in ['MANAGER', 'ADMIN']:
+        return render_template('training.html')
+    else:
+        flash(f'Invalid request. Please contact support if this problem persists.', 'error')
+        return render_template('error.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
